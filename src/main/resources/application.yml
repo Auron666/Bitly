@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://10.7.4.212:1433;database=msdb
+    username: sa
+    password: Str0ngPa$$w0rd
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
