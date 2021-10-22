@@ -28,8 +28,6 @@ public class ShortController {
     @GetMapping(path = "/{hash}")
     public ResponseEntity redirectShortUrl(@PathVariable("hash") String hash){
 
-        log.info("Hash: " + hash);
-
         ShortUrl shortUrl = shortRepository.findByHash(hash);
 
         if(shortUrl != null) {
@@ -37,12 +35,8 @@ public class ShortController {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Location", shortUrl.getOriginalUrl());
 
-            log.info("ShortUrl: " + shortUrl.getOriginalUrl());
-
             return new ResponseEntity<String>(headers,HttpStatus.FOUND);
-
         }else{
-
             return ResponseEntity.notFound().build();
         }
     }
